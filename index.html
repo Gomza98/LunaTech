@@ -418,11 +418,30 @@
         }
 
         /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
+       @media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Keep this to hide by default */
+        flex-direction: column; /* Stack items vertically */
+        position: absolute; /* Position it absolutely */
+        top: 60px; /* Adjust based on your header height */
+        left: 0;
+        background: rgba(10, 10, 10, 0.95); /* Background color */
+        width: 100%; /* Full width */
+        z-index: 1000; /* Ensure it appears above other content */
+    }
+    .nav-links.active {
+        display: flex; /* Show when active */
+    }
+    .menu-toggle {
+        display: block; /* Show the toggle button */
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+}
+
             .hero h1 {
                 font-size: 3rem;
             }
@@ -465,7 +484,7 @@
 
     <!-- Header -->
     <header>
-	
+      
     </header>
 
     <!-- Hero Section -->
@@ -478,24 +497,17 @@
             </div>
         </div>
     </section>
-	  <nav class="container">
-		  <a href="#home" class="logo">LunaTech</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-
-           
-
- <div class="contact-info fade-in">
-                    <h3>Ready to Transform Your Business?</h3>
-                    <p>Let's discuss how we can elevate your technology infrastructure and drive your business forward. Our team of experts is ready to provide personalized solutions that fit your unique needs and budget.</p>
-                    <p>Based in Pretoria, we understand the local business landscape and are committed to helping South African businesses thrive in the digital age.</p>
-                </div>
-
 	
+	 <nav class="container">
+    <a href="#home" class="logo">LunaTech</a>
+    <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
@@ -560,7 +572,11 @@
         <div class="container">
             <h2 class="section-title fade-in">Get In Touch</h2>
             <div class="contact-content">
-               
+                <div class="contact-info fade-in">
+                    <h3>Ready to Transform Your Business?</h3>
+                    <p>Let's discuss how we can elevate your technology infrastructure and drive your business forward. Our team of experts is ready to provide personalized solutions that fit your unique needs and budget.</p>
+                    <p>Based in Pretoria, we understand the local business landscape and are committed to helping South African businesses thrive in the digital age.</p>
+                </div>
                 <form id="contact-form" class="fade-in">
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -602,6 +618,15 @@
                 particlesContainer.appendChild(particle);
             }
         }
+		
+		document.querySelector('.menu-toggle').addEventListener('click', function() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active'); // Toggle the active class
+});
+
+		
+		
+		
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
