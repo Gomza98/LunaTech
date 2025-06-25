@@ -2,7 +2,7 @@
 
 Welcome to the official LunaTech Solutions website — a sleek, modern digital presence built to showcase our IT consulting and tech service offerings.
 
-🔗 **Live Site:** [gomza98.github.io/LunaTech](https://gomza98.github.io/LunaTech/)
+
 
 ---
 
