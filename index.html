@@ -422,8 +422,8 @@
             border-top: 1px solid rgba(102, 126, 234, 0.2);
         }
 
-        /* Mobile Responsiveness */
-       @media (max-width: 768px) {
+       /* Mobile Responsiveness */
+@media (max-width: 768px) {
     .nav-links {
         display: none; /* Keep this to hide by default */
         flex-direction: column; /* Stack items vertically */
@@ -438,15 +438,20 @@
         display: flex; /* Show when active */
     }
     .menu-toggle {
-        display: block; /* Show the toggle button */
-        background:rgba(10, 10, 10, 0.95); /* Background color */
+        display: block; /* Show the toggle button on mobile */
+        background: rgba(10, 10, 10, 0.95); /* Background color */
         border: none;
         color: white;
         font-size: 2rem;
         cursor: pointer;
     }
 }
+.menu-toggle {
+    display: none; /* Hide by default */
+}
 
+
+	    
             .hero h1 {
                 font-size: 3rem;
             }
